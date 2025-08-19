@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>2 años — Una carta para ti</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="hearts" aria-hidden="true"></div>
+
+<header>
+    <div class="brand">
+        <div class="logo" aria-hidden="true">❤</div>
+        <div>
+            <h1>Para ti — 2 años</h1>
+            <div class="sub">19/08/2023 — 19/08/2025 · Dos años juntos</div>
+        </div>
+    </div>
+    <div class="sub">Hecho con <span class="accent">amor</span> y código</div>
+</header>
+
+<main>
+    <div class="hero">
+        <div>
+            <div class="lead">El amor de tu vida ha escrito una carta para ti.</div>
+            <div class="cta-row">
+                <button class="btn" id="openLetterBtn">Abrir carta</button>
+                <button class="btn ghost" id="uploadPhotosBtn">Cargar fotos</button>
+                <button class="btn ghost" id="playMusicBtn">Reproducir música</button>
+            </div>
+
+            <div class="counter-row">
+                <div class="counter" id="daysCounter">— días</div>
+                <div class="muted">juntos</div>
+            </div>
+
+            <div class="muted hint">Interactúa con los botones para descubrir sorpresas.</div>
+        </div>
+
+        <div>
+            <div class="card">
+                <div class="slideshow" id="slideshow">
+                    <img id="slideImg" src="" alt="Fotos de nosotros" style="opacity:0">
+                    <div class="sparkle" aria-hidden="true"></div>
+                </div>
+
+                <div class="controls">
+                    <button class="small-btn" id="prevBtn" aria-label="Foto anterior">◀</button>
+                    <button class="small-btn" id="nextBtn" aria-label="Siguiente foto">▶</button>
+                    <button class="small-btn" id="shuffleBtn">Mezclar</button>
+                </div>
+
+                <div class="photo-actions">
+                    <input type="file" id="photoInput" accept="image/*" multiple style="display:none">
+                    <button class="small-btn" id="addPhotosLocal">Cargar desde dispositivo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="section-title"><h2>Nuestra historia</h2></div>
+        <div class="section-content">
+            <p>Desde el <strong>19 de agosto de 2023</strong>, cada día hemos escrito una página más bonita en nuestro libro. Fueron dos años de luchas, altos, bajos, pero siempre nos hemos levantado y amado como nunca.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title"><h2>Carta</h2></div>
+        <div class="section-content">
+            <p>Presiona "Abrir carta" arriba para leer la carta que escribí.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title"><h2>Regalo</h2></div>
+        <div class="section-content gift">
+            <div class="boxed">
+                <div class="muted">Cuando estés lista...</div>
+                <button class="btn" id="openGiftBtn">Abrir regalo</button>
+            </div>
+            <div id="giftInstr" class="gift-instr" hidden>...</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="muted" style="margin-top:8px">Hecho con ❤️ por Rudicito.</div>
+    </footer>
+</main>
+
+<!-- Modal Carta -->
+<div class="modal" id="letterModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-card" role="document">
+        <div class="modal-header">
+            <div class="title" id="modalTitle">Una carta para ti</div>
+            <div><button class="small-btn" id="closeModal">Cerrar</button></div>
+        </div>
+
+        <div class="letter typewriter" id="letterText" aria-live="polite">... escribiendo...</div>
+
+        <div class="modal-actions">
+            <button class="btn" id="openLetterFull">Mostrar completa</button>
+        </div>
+    </div>
+</div>
+
+<!-- Audio: dejar source por defecto a audio/one_direction.mp3 -->
+<audio id="bgMusic" loop preload="none" aria-hidden="true">
+    <source src="audio/one_direction.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+</audio>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>

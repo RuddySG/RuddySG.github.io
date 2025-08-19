@@ -78,9 +78,31 @@ section{margin-top:28px}
 /* modal */
 .modal{position:fixed;inset:0;display:grid;place-items:center;background:rgba(20,10,12,0.45);z-index:40;opacity:0;pointer-events:none;transition:opacity .2s ease}
 .modal.open{opacity:1;pointer-events:auto}
-.modal-card{width:92%;max-width:720px;background:white;border-radius:16px;padding:22px;box-shadow:0 30px 80px rgba(80,20,40,0.18)}
+.modal-card{
+    width:92%;
+    max-width:720px;
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    box-shadow:0 30px 80px rgba(80,20,40,0.18);
+
+    /* <-- cambios para permitir scroll en móviles */
+    max-height: 90vh;            /* no más alto que la pantalla */
+    overflow: auto;             /* habilita scroll interno si el contenido excede */
+    -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
+}
 .modal-header{display:flex;justify-content:space-between;align-items:center}
-.letter{white-space:pre-wrap;margin-top:12px;color:#333}
+.letter{
+    white-space:pre-wrap;
+    margin-top:12px;
+    color:#333;
+
+    /* opcional: límite de altura para la propia zona de texto dentro de la tarjeta,
+       útil si quieres que el header del modal y botones siempre queden visibles */
+    max-height: calc(90vh - 120px); /* ajusta 120px si tu header ocupa más/menos */
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
 .typewriter{font-family:'Playfair Display'}
 .modal-actions{margin-top:18px;display:flex;gap:8px;justify-content:flex-end}
 

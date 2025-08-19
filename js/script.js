@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const coupleStart = new Date('2023-08-19T00:00:00');
     // Si quieres rutas permanentes en GitHub, pon aquí las rutas relativas (images/foto1.jpg)
     let preloadedImages = [
+        'images/a1.jpeg',
+        'images/a2.jpeg',
+        'images/a3.jpeg',
+        'images/a4.jpeg',
+        'images/a5.jpeg',
+        'images/a6.jpeg',
+        'images/a7.jpeg',
+        'images/a8.jpeg',
         'images/20220924_124919.jpg',
         'images/20230512_222649.jpg',
         'images/20230512_222654.jpg',

@@ -3,119 +3,176 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>2 años — Una carta para ti</title>
+    <title>Mensaje</title>
+    <meta name="description" content="Mensaje personal." />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg1:#0b1220;
+            --bg2:#0f172a;
+            --card: rgba(255,255,255,.08);
+            --card2: rgba(255,255,255,.06);
+            --text: rgba(255,255,255,.92);
+            --muted: rgba(255,255,255,.72);
+            --line: rgba(255,255,255,.14);
+            --accent:#93c5fd;
+            --accent2:#a7f3d0;
+            --shadow: 0 18px 55px rgba(0,0,0,.45);
+        }
 
-    <!-- estilos -->
-    <link rel="stylesheet" href="css/styles.css">
+        *{box-sizing:border-box}
+        html,body{height:100%}
+
+        body{
+            margin:0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            color:var(--text);
+            background:
+                    radial-gradient(1200px 700px at 15% 10%, rgba(147,197,253,.18), transparent 55%),
+                    radial-gradient(1100px 700px at 85% 20%, rgba(167,243,208,.14), transparent 55%),
+                    linear-gradient(180deg, var(--bg1), var(--bg2));
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:22px;
+        }
+
+        .wrap{
+            width:min(480px,100%);
+        }
+
+        .card{
+            background: linear-gradient(180deg, var(--card), var(--card2));
+            border:1px solid var(--line);
+            border-radius:22px;
+            padding:24px;
+            box-shadow:var(--shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position:relative;
+            overflow:hidden;
+        }
+
+        .card::before{
+            content:"";
+            position:absolute;
+            inset:-120px -120px auto auto;
+            width:260px;
+            height:260px;
+            background: radial-gradient(circle at 30% 30%, rgba(167,243,208,.28), transparent 60%);
+            transform: rotate(20deg);
+            pointer-events:none;
+        }
+
+        .top{
+            display:flex;
+            gap:14px;
+            align-items:center;
+            margin-bottom:16px;
+        }
+
+        .badge{
+            width:44px;
+            height:44px;
+            border-radius:14px;
+            background: rgba(255,255,255,.10);
+            border:1px solid var(--line);
+            display:grid;
+            place-items:center;
+            font-size:16px;
+            color:var(--muted);
+        }
+
+        h1{
+            margin:0;
+            font-size:18px;
+            font-weight:600;
+        }
+
+        .date{
+            margin-top:4px;
+            font-size:12px;
+            color:var(--muted);
+        }
+
+        .divider{
+            height:1px;
+            background:var(--line);
+            margin:14px 0 18px;
+        }
+
+        .msg{
+            font-size:15px;
+            line-height:1.75;
+        }
+
+        .msg p{
+            margin:0 0 12px;
+        }
+
+        .msg p:last-child{
+            margin-bottom:0;
+        }
+
+        .footer{
+            margin-top:18px;
+            font-size:12px;
+            color:var(--muted);
+            text-align:right;
+        }
+    </style>
 </head>
+
 <body>
-<div id="hearts" aria-hidden="true"></div>
+<main class="wrap">
+    <section class="card">
 
-<header>
-    <div class="brand">
-        <div class="logo" aria-hidden="true">❤</div>
-        <div>
-            <h1>Para ti — 2 años</h1>
-            <div class="sub">19/08/2023 — 19/08/2025 · Dos años juntos</div>
-        </div>
-    </div>
-    <div class="sub">Hecho con <span class="accent">amor</span> y código</div>
-</header>
-
-<main>
-    <div class="hero">
-        <div>
-            <div class="lead">El amor de tu vida ha escrito una carta para ti.</div>
-            <div class="cta-row">
-                <button class="btn" id="openLetterBtn">Abrir carta</button>
-                <button class="btn ghost" id="uploadPhotosBtn">Cargar fotos</button>
-                <button class="btn ghost" id="playMusicBtn">Reproducir música</button>
-            </div>
-
-            <div class="counter-row">
-                <div class="counter" id="daysCounter">— días</div>
-                <div class="muted">juntos</div>
-            </div>
-
-            <div class="muted hint">Interactúa con los botones para descubrir sorpresas.</div>
-        </div>
-
-        <div>
-            <div class="card">
-                <div class="slideshow" id="slideshow">
-                    <img id="slideImg" src="" alt="Fotos de nosotros" style="opacity:0">
-                    <div class="sparkle" aria-hidden="true"></div>
-                </div>
-
-                <div class="controls">
-                    <button class="small-btn" id="prevBtn" aria-label="Foto anterior">◀</button>
-                    <button class="small-btn" id="nextBtn" aria-label="Siguiente foto">▶</button>
-                    <button class="small-btn" id="shuffleBtn">Mezclar</button>
-                </div>
-
-                <div class="photo-actions">
-                    <input type="file" id="photoInput" accept="image/*" multiple style="display:none">
-                    <button class="small-btn" id="addPhotosLocal">Cargar desde dispositivo</button>
-                </div>
+        <div class="top">
+            <div class="badge">OK</div>
+            <div>
+                <h1>Hola Valentina</h1>
+                <div class="date" id="date"></div>
             </div>
         </div>
-    </div>
 
-    <section>
-        <div class="section-title"><h2>Nuestra historia</h2></div>
-        <div class="section-content">
-            <p>Desde el <strong>19 de agosto de 2023</strong>, cada día hemos escrito una página más bonita en nuestro libro. Fueron dos años de luchas, altos, bajos, pero siempre nos hemos levantado y amado como nunca.</p>
+        <div class="divider"></div>
+
+        <div class="msg">
+            <p>Ya llegué.</p>
+
+            <p>
+                Le doy las gracias a Dios por haberte puesto en mi camino,
+                y las gracias a vos por todo gg, sos mi pavita en clash.
+            </p>
+
+            <p>
+                Espero que te vaya bien este semestre y de verdad deseo
+                que te vaya muy bien y que te divirtás.
+            </p>
+
+            <p>
+                Por mi parte yo trabajaré como animal para alcanzar
+                todo lo que quiero.
+            </p>
+
+            <p>
+                Cuidate y gracias :)
+            </p>
         </div>
+
+        <div class="footer">
+            — Ruddy
+        </div>
+
     </section>
-
-    <section>
-        <div class="section-title"><h2>Carta</h2></div>
-        <div class="section-content">
-            <p>Presiona "Abrir carta" arriba para leer la carta que escribí.</p>
-        </div>
-    </section>
-
-    <section>
-        <div class="section-title"><h2>Regalo</h2></div>
-        <div class="section-content gift">
-            <div class="boxed">
-                <div class="muted">Cuando estés lista...</div>
-                <button class="btn" id="openGiftBtn">Abrir regalo</button>
-            </div>
-            <div id="giftInstr" class="gift-instr" hidden>...</div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="muted" style="margin-top:8px">Hecho con ❤️ por Rudicito.</div>
-    </footer>
 </main>
 
-<!-- Modal Carta -->
-<div class="modal" id="letterModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
-    <div class="modal-card" role="document">
-        <div class="modal-header">
-            <div class="title" id="modalTitle">Una carta para ti</div>
-            <div><button class="small-btn" id="closeModal">Cerrar</button></div>
-        </div>
+<script>
+    const d = new Date();
+    const opts = { year:"numeric", month:"long", day:"numeric" };
+    document.getElementById("date").textContent =
+        d.toLocaleDateString("es-BO", opts);
+</script>
 
-        <div class="letter typewriter" id="letterText" aria-live="polite">... escribiendo...</div>
-
-        <div class="modal-actions">
-            <button class="btn" id="openLetterFull">Mostrar completa</button>
-        </div>
-    </div>
-</div>
-
-<!-- Audio: dejar source por defecto a audio/one_direction.mp3 -->
-<audio id="bgMusic" loop preload="none" aria-hidden="true">
-    <source src="audio/one_direction.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-</audio>
-
-<script src="js/script.js" defer></script>
 </body>
 </html>
